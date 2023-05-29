@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UsuariosController;
 use App\Http\Controllers\ProductosController;
 use App\Http\Controllers\PedidosController;
 
@@ -18,6 +19,9 @@ use App\Http\Controllers\PedidosController;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/usuarios', [UsuariosController::class, 'index'])->name('usuarios.index');
+Route::get('/usuarios/crear', [UsuariosController::class, 'create'])->name('usuarios.create');
 
 Route::get('/productos', [ProductosController::class, 'index'])->name('productos.index');
 Route::get('/productos/crear', [ProductosController::class, 'create'])->name('productos.create');
